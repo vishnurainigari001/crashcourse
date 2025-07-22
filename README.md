@@ -1,295 +1,160 @@
-3-Month Server Engineer Learning Plan
-This plan tracks the journey from experienced Android developer to intermediate Server Engineer over three months.
+# **3-Month Server Engineer Learning Plan**
 
-Month 1: The Core Backend Foundation
-Project: Build a REST API for a simple blogging platform (Users, Posts, Comments).
+A focused plan to transition from an experienced Android developer to an intermediate Server Engineer.
 
-Week 1: Spring Boot & REST APIs
-[ ] Set up a Spring Boot project using Spring Initializr (Kotlin, Spring Web, Spring Data JPA).
+## **Month 1: Core Backend Foundation**
 
-[ ] Create a @RestController for a Post resource.
+**Project:** Build a REST API for a simple blogging platform.
 
-[ ] Implement GET /posts and GET /posts/{id} endpoints.
+### **Week 1: Spring Boot & REST APIs**
 
-[ ] Implement POST /posts endpoint.
+* \[ \] Set up a Spring Boot project (Kotlin, Spring Web, Spring Data JPA) using Spring Initializr.  
+* \[ \] Implement a @RestController with full CRUD endpoints (GET, POST, PUT, DELETE) for a Post resource.  
+* \[ \] Test all endpoints using Postman or Insomnia.  
+* \[ \] Refactor logic into a dedicated @Service class.
 
-[ ] Implement PUT /posts/{id} endpoint.
-
-[ ] Implement DELETE /posts/{id} endpoint.
-
-[ ] Install and use Postman or Insomnia to test all created endpoints.
-
-[ ] Refactor business logic from the controller into a dedicated @Service class.
-
-<br>
+\<br\>  
 Resources:
 
-Official Guide: Building a RESTful Web Service with Spring Boot
+* [Official Guide: Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)  
+* [Baeldung: Spring Boot with Kotlin](https://www.baeldung.com/kotlin/spring-boot-kotlin)
 
-Baeldung: Spring Boot with Kotlin
+### **Week 2: Databases & Persistence**
 
-Postman: Getting Started
+* \[ \] Set up a PostgreSQL database and configure the Spring application to connect to it.  
+* \[ \] Define data models as JPA @Entity classes and create JpaRepository interfaces for them.  
+* \[ \] Integrate a migration tool (Flyway or Liquibase) and create an initial schema script.  
+* \[ \] Use the @Transactional annotation on service methods to ensure data consistency.
 
-Week 2: Databases & Persistence
-[ ] Install PostgreSQL locally or run it via Docker.
-
-[ ] Configure your Spring Boot application to connect to the PostgreSQL database.
-
-[ ] Create @Entity classes for User, Post, and Comment.
-
-[ ] Create JpaRepository interfaces for each entity to handle database queries.
-
-[ ] Connect your service layer to the repositories to persist and retrieve data.
-
-[ ] Add a database migration tool (Flyway or Liquibase) to the project.
-
-[ ] Create an initial migration script for your tables.
-
-[ ] Learn and correctly apply the @Transactional annotation on service methods.
-
-<br>
+\<br\>  
 Resources:
 
-Official Guide: Accessing Data with JPA
+* [Official Guide: Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)  
+* [Baeldung: Intro to Spring Data JPA](https://www.google.com/search?q=https://www.baeldung.com/spring-data-jpa-tutorial)  
+* [Flyway: Getting Started](https://flywaydb.org/documentation/getstarted/)
 
-Baeldung: Introduction to Spring Data JPA
+### **Week 3: Advanced APIs & Best Practices**
 
-Flyway: Getting Started
+* \[ \] Add and apply jakarta.validation annotations for request validation.  
+* \[ \] Create a global exception handler with @ControllerAdvice for structured error responses.  
+* \[ \] Use the DTO pattern to separate API data from internal database entities.  
+* \[ \] Implement @OneToMany and @ManyToOne entity relationships.
 
-PostgreSQL: Official Documentation
-
-Week 3: Advanced APIs & Best Practices
-[ ] Add jakarta.validation dependencies to your project.
-
-[ ] Apply validation annotations (@NotNull, @Size, etc.) to request objects.
-
-[ ] Create a global exception handler using @ControllerAdvice to return structured error responses.
-
-[ ] Define DTOs (Data Transfer Objects) for your API's requests and responses.
-
-[ ] Refactor controllers to use DTOs instead of exposing JPA entities directly.
-
-[ ] Implement entity relationships (@OneToMany, @ManyToOne) between Users, Posts, and Comments.
-
-<br>
+\<br\>  
 Resources:
 
-Baeldung: Spring Boot Validation
+* [Baeldung: Spring Boot Validation](https://www.baeldung.com/spring-boot-bean-validation)  
+* [Baeldung: DTO Pattern in Spring](https://www.baeldung.com/java-dto-pattern)
 
-Baeldung: DTO Pattern in Spring
+### **Week 4: Testing & Basic Security**
 
-Baeldung: Error Handling for REST with Spring
+* \[ \] Write unit tests (JUnit 5, Mockito) and integration tests (@SpringBootTest).  
+* \[ \] Add Spring Security and configure a basic username/password authentication provider.  
+* \[ \] Secure write endpoints (POST, PUT, DELETE) to require authentication.
 
-Week 4: Testing & Basic Security
-[ ] Write unit tests for your @Service classes using JUnit 5 and Mockito.
-
-[ ] Write integration tests for your @RestController using @SpringBootTest and MockMvc.
-
-[ ] Add the Spring Security dependency to your project.
-
-[ ] Configure basic security with an in-memory or JDBC-based user store.
-
-[ ] Secure your POST, PUT, and DELETE endpoints to require authentication.
-
-<br>
+\<br\>  
 Resources:
 
-Official Guide: Spring Security Architecture
+* [Official Guide: Spring Security Architecture](https://spring.io/guides/topicals/spring-security-architecture)  
+* [Baeldung: Testing in Spring Boot](https://www.baeldung.com/spring-boot-testing)
 
-Baeldung: Testing in Spring Boot
+## **Month 2: Architecture & Scalability**
 
-JUnit 5 User Guide
+**Project:** Decompose the monolith into microservices.
 
-Mockito Documentation
+### **Week 5: Intro to Microservices**
 
-Month 2: Architecture & Scalability
-Project: Decompose the monolith into microservices.
+* \[ \] Research Monolith vs. Microservices architectures.  
+* \[ \] Create a separate user-service Spring Boot project and migrate all user-related logic to it.  
+* \[ \] Implement a REST call from the blog-service to the user-service using WebClient.
 
-Week 5: Intro to Microservices
-[ ] Read an article or watch a video comparing Monolith vs. Microservices architectures.
-
-[ ] Create a new, separate Spring Boot project named user-service.
-
-[ ] Move all user-related code (Entity, Repository, Service, Controller) to the user-service.
-
-[ ] Remove the user code from the original blog-service.
-
-[ ] Implement a REST call from blog-service to user-service using WebClient.
-
-<br>
+\<br\>  
 Resources:
 
-Microservices.io: Pattern: Microservice Architecture
+* [Microservices.io: Microservice Architecture Pattern](https://microservices.io/patterns/microservices.html)  
+* [Baeldung: Spring 5 WebClient](https://www.google.com/search?q=https://www.baeldung.com/spring-webclient-tutorial)
 
-Spring Cloud Documentation
+### **Week 6: Asynchronous Communication & Caching**
 
-Baeldung: Spring 5 WebClient
+* \[ \] Use RabbitMQ for asynchronous communication between services (e.g., a UserCreated event).  
+* \[ \] Integrate Redis to cache frequently accessed data using Spring's @Cacheable annotation.
 
-Week 6: Asynchronous Communication & Caching
-[ ] Run RabbitMQ using a Docker container.
-
-[ ] Add the spring-rabbit dependency to both microservices.
-
-[ ] Make the user-service publish a UserCreated message to a RabbitMQ queue.
-
-[ ] Make the blog-service consume this message to perform a follow-up action.
-
-[ ] Run Redis using a Docker container.
-
-[ ] Add the Spring Data Redis dependency to your blog-service.
-
-[ ] Apply the @Cacheable annotation to a high-traffic method, like fetching a post by its ID.
-
-[ ] Verify that the cache is working by checking logs or using a Redis CLI.
-
-<br>
+\<br\>  
 Resources:
 
-Official Guide: Messaging with RabbitMQ
+* [Official Guide: Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/)  
+* [Official Guide: Caching](https://spring.io/guides/gs/caching/)
 
-Official Guide: Caching
+### **Week 7: Containerization with Docker 🐳**
 
-Redis: Official Documentation
+* \[ \] Write Dockerfiles to containerize the blog-service and user-service.  
+* \[ \] Create a docker-compose.yml file to define and run the entire application stack (services, DB, cache, message queue).
 
-RabbitMQ: Get Started
-
-Week 7: Containerization with Docker 🐳
-[ ] Install Docker Desktop on your computer.
-
-[ ] Write a Dockerfile for your blog-service.
-
-[ ] Write a Dockerfile for your user-service.
-
-[ ] Build Docker images for both services using the docker build command.
-
-[ ] Create a docker-compose.yml file.
-
-[ ] Define all services in the compose file: blog-service, user-service, postgres, rabbitmq, and redis.
-
-[ ] Start your entire multi-container application with a single docker-compose up command.
-
-<br>
+\<br\>  
 Resources:
 
-Docker: Get Started
+* [Official Guide: Spring Boot with Docker](https://spring.io/guides/gs/spring-boot-docker/)  
+* [Docker Compose Overview](https://docs.docker.com/compose/)
 
-Official Guide: Spring Boot with Docker
+### **Week 8: API Gateways & JWT Authentication**
 
-Docker Compose Overview
+* \[ \] Set up Spring Cloud Gateway to route requests to the appropriate microservice.  
+* \[ \] Implement JWT issuance in the user-service upon login.  
+* \[ \] Configure the gateway to validate JWTs on incoming requests, centralizing authentication.
 
-Week 8: API Gateways & JWT Authentication
-[ ] Create a new Spring Boot project with the Spring Cloud Gateway dependency.
-
-[ ] Configure routes in the gateway to forward requests to the correct microservice.
-
-[ ] Add a JWT library dependency to your user-service.
-
-[ ] Create a /login endpoint in the user-service that returns a JWT on success.
-
-[ ] Configure the API Gateway to validate JWTs on incoming requests.
-
-[ ] Update your Postman collection to first log in, save the token, and use it as a Bearer Token on subsequent requests.
-
-<br>
+\<br\>  
 Resources:
 
-Official Guide: Spring Cloud Gateway
+* [Official Guide: Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway)  
+* [Baeldung: Spring Security and JWT](https://www.baeldung.com/spring-security-oauth-jwt)
 
-Baeldung: Spring Security and JWT
+## **Month 3: Operations & The Cloud (DevOps)**
 
-JWT.io: Introduction to JSON Web Tokens
+**Project:** Deploy and Monitor your Application on AWS.
 
-Month 3: Operations & The Cloud (DevOps)
-Project: Deploy and Monitor your Application on AWS.
+### **Week 9: Introduction to the Cloud (AWS)**
 
-Week 9: Introduction to the Cloud (AWS)
-[ ] Sign up for an AWS Free Tier account.
+* \[ \] Sign up for an AWS Free Tier account.  
+* \[ \] Provision core services: an EC2 instance, an RDS PostgreSQL database, and an S3 bucket.  
+* \[ \] Update application configuration to use the new cloud resources.
 
-[ ] Launch a small t2.micro EC2 instance and connect to it via SSH.
-
-[ ] Create a managed PostgreSQL database using AWS RDS.
-
-[ ] Update your application configuration to connect to the RDS instance.
-
-[ ] Create a private S3 bucket for storing files.
-
-<br>
+\<br\>  
 Resources:
 
-AWS Free Tier
+* [AWS Free Tier](https://aws.amazon.com/free/)  
+* [AWS Docs: Getting Started Guides](https://aws.amazon.com/getting-started/)
 
-AWS Docs: Launch an EC2 Instance
+### **Week 10: CI/CD & Container Orchestration**
 
-AWS Docs: Create a PostgreSQL DB with RDS
+* \[ \] Create a GitHub Actions workflow to run tests and build Docker images on every push.  
+* \[ \] Push built images to AWS ECR (Elastic Container Registry).  
+* \[ \] Deploy and run your containers on an AWS ECS (Elastic Container Service) cluster.
 
-AWS Docs: Getting started with S3
-
-Week 10: CI/CD & Container Orchestration
-[ ] Create a new GitHub repository for your project.
-
-[ ] Set up a GitHub Actions workflow (.github/workflows/ci.yml).
-
-[ ] Configure the workflow to automatically run tests (./gradlew test) on every push.
-
-[ ] Create an AWS ECR (Elastic Container Registry) repository.
-
-[ ] Add steps to your GitHub Actions workflow to build and push your Docker image to ECR.
-
-[ ] Create an AWS ECS (Elastic Container Service) cluster.
-
-[ ] Create an ECS Task Definition and Service to deploy and run your container from ECR.
-
-<br>
+\<br\>  
 Resources:
 
-GitHub Actions Documentation
+* [GitHub Actions Documentation](https://docs.github.com/en/actions)  
+* [AWS Docs: Getting Started with Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/getting-started-fargate.html)
 
-AWS Docs: What is Amazon ECR?
+### **Week 11: Monitoring & Logging**
 
-AWS Docs: Getting Started with Amazon ECS
+* \[ \] Use Spring Boot Actuator to expose application health and metrics.  
+* \[ \] Configure services to send structured logs to AWS CloudWatch.  
+* \[ \] Create CloudWatch Dashboards and Alarms to monitor key application metrics.
 
-Week 11: Monitoring & Logging
-[ ] Add the Spring Boot Actuator dependency to your services.
-
-[ ] Explore the /actuator/health and /actuator/metrics endpoints.
-
-[ ] Configure your services to output logs in a structured JSON format.
-
-[ ] Configure your ECS task to send container logs to AWS CloudWatch Logs.
-
-[ ] Find and search your application's logs in the CloudWatch console.
-
-[ ] Create a CloudWatch Dashboard to monitor key metrics like CPU and Memory usage of your service.
-
-[ ] Create a CloudWatch Alarm that sends you a notification if a metric crosses a threshold.
-
-<br>
+\<br\>  
 Resources:
 
-Official Guide: Spring Boot Actuator
+* [Baeldung: Spring Boot Actuator](https://www.baeldung.com/spring-boot-actuators)  
+* [AWS Docs: What is Amazon CloudWatch?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)
 
-Baeldung: Spring Boot Actuator
+### **Week 12: Infrastructure as Code & Review**
 
-AWS Docs: What is Amazon CloudWatch?
+* \[ \] Learn the basics of Terraform by writing a script to provision a simple AWS resource.  
+* \[ \] Run the init, plan, apply, and destroy commands.  
+* \[ \] Review all concepts from the past three months and update your professional profiles (GitHub, resume) with new skills.
 
-Week 12: Infrastructure as Code & Review
-[ ] Install Terraform on your local machine.
-
-[ ] Write a simple Terraform script to provision a single AWS resource (e.g., an S3 bucket).
-
-[ ] Run terraform init, terraform plan, and terraform apply.
-
-[ ] Clean up the resource using terraform destroy.
-
-[ ] Review all the projects and concepts from the last 3 months.
-
-[ ] Clean up and push all your project code to GitHub.
-
-[ ] Update your resume and LinkedIn profile with your new skills: Spring Boot, Microservices, Docker, AWS (ECS, RDS, S3), CI/CD, and more.
-
-<br>
+\<br\>  
 Resources:
 
-Terraform: Introduction
-
-Terraform on AWS: Get Started
+* [Terraform on AWS: Get Started](https://developer.hashicorp.com/terraform/tutorials/aws-get-started)
